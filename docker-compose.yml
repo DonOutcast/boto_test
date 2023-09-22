@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: devops/backend/Dockerfile
+    ports:
+      - "${BACKEND_EXTERNAL_PORT}:${BACKEND_INTERNAL_PORT}"
 
 #  elasticsearch:
 #    build:
