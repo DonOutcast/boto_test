@@ -1,8 +1,8 @@
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String
 
-from backend.database.connection import Base
-from backend.auth.models.users_roles import users_roles
+from database.connection import Base
+from auth.models.users_roles import users_roles
 
 
 class Role(Base):

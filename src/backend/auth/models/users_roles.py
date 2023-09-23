@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, Table, ForeignKey
 
-from backend.database.connection import Base
+from database.connection import Base
 
 users_roles = Table(
     "users_roles",

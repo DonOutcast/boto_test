@@ -6,10 +6,11 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import NullPool
 
-DATABASE_URL = ""
-
+DATABASE_URL = "postgresql+asyncpg://postgres:postgres@localhost:5432/test"
 
 Base = declarative_base()
+
+
 # metadata = MetaData()
 
 
@@ -23,7 +24,12 @@ Base = declarative_base()
 
 
 class AsyncDatabaseSession:
+    __instance = None
+
     def __init__(self):
+        if self.__initialized:
+            return
+        self.__initialized = True
         self.engine = None
         self.session = None
         self.metadata = MetaData()
